@@ -6,10 +6,10 @@ export const fetchNew = () => {
   return (dispatch: Dispatch<NewsAction>) => {
     dispatch({ type: NewsActionTypes.FETCH_NEWS });
     getNewsId()
-      .then((id) => Promise.all(id.slice(0, 100).map((id: number) => getNews(id))))
+      .then((ids) => Promise.all(ids.slice(0, 100).map((id: number) => getNews(id))))
       .then((data) => dispatch({ type: NewsActionTypes.FETCH_NEWS_SUCCESS, payload: data }))
       .catch((e) => {
-        dispatch({ type: NewsActionTypes.FETCH_NEWS_ERROR, payload: e as string });
+        console.log(e);
       });
   };
 };
