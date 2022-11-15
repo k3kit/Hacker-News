@@ -1,6 +1,6 @@
 import { Dispatch } from 'react';
-import { INews, NewsAction, NewsActionTypes } from '../../../types/news';
-import { getNews, getNewsId } from '../../../utils/API/news';
+import { INews, NewsAction, NewsActionTypes } from '../../types/news';
+import { getNews, getNewsId } from '../../utils/API/news';
 
 export const fetchNew = () => {
   return (dispatch: Dispatch<NewsAction>) => {
