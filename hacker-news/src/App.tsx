@@ -6,12 +6,13 @@ import { useTypesSelector } from './hooks/useTypedSelector';
 import { Home } from './pages/home/Home';
 function App() {
   const { news } = useTypesSelector((state) => state.news);
-  const { fetchNew } = useActions();
+  const { fetchNew, initFetch } = useActions();
   useEffect(() => {
+    initFetch();
     fetchNew();
     setInterval(() => {
       fetchNew();
-    }, 120000);
+    }, 60000);
   }, []);
 
   return (
