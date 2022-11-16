@@ -7,9 +7,8 @@ import { Home } from './pages/home/Home';
 import { NewsPage } from './pages/news-page/NewsPage';
 function App() {
   const { news } = useTypesSelector((state) => state.news);
-  const { fetchNew, initFetch } = useActions();
+  const { fetchNew } = useActions();
   useEffect(() => {
-    initFetch();
     fetchNew();
     setInterval(() => {
       fetchNew();

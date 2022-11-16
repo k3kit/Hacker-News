@@ -1,9 +1,11 @@
 import { INews, NewsAction, NewsActionTypes } from '../../types/news';
+
 interface NewsState {
   news: INews[];
   loading: boolean;
   error: null | string;
 }
+
 const initialState: NewsState = {
   news: [],
   loading: false,

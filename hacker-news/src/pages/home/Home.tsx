@@ -8,9 +8,9 @@ import { getNewsId } from '../../utils/API/news';
 import RefreshIcon from '@mui/icons-material/Refresh';
 import { NewsCard } from '../../components/NewsCard';
 import { SkeletonList } from '../../components/skeleton';
+import { INews } from '../../types/news';
 export const Home: FC = memo(() => {
   const { news, loading } = useTypesSelector((state) => state.news);
-  const { fetchNew } = useActions();
   const skeletonArray: any[] = Array(10).fill('');
 
   return (
