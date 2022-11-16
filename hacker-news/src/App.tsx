@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { useActions } from './hooks/useActions';
 import { useTypesSelector } from './hooks/useTypedSelector';
 import { Home } from './pages/home/Home';
+import { NewsPage } from './pages/news-page/NewsPage';
 function App() {
   const { news } = useTypesSelector((state) => state.news);
   const { fetchNew, initFetch } = useActions();
@@ -26,8 +27,11 @@ function App() {
       </AppBar>
 
       <Switch>
-        <Route path="/">
+        <Route exact path="/">
           <Home />
+        </Route>
+        <Route path="/news/:id">
+          <NewsPage />
         </Route>
       </Switch>
     </Router>

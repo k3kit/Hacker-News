@@ -18,8 +18,7 @@ const bull = (
 );
 export const NewsCard: FC<CardProps> = ({ item }) => {
   return (
-    // <Link to={`/news/${item.id}`}>
-    <Card>
+    <Card component={Link} to={`/news/${item.id}`} sx={{ textDecoration: 'none' }}>
       <CardActionArea>
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
@@ -28,10 +27,8 @@ export const NewsCard: FC<CardProps> = ({ item }) => {
           <Typography variant="subtitle1" color="text.secondary">
             {item.score} point by {item.by} {bull} Jan 1, 2022, 13:44
           </Typography>
-          {/* <Typography sx={{ mb: 1.5 }} color="text.secondary"></Typography> */}
         </CardContent>
       </CardActionArea>
     </Card>
-    // </Link>
   );
 };
