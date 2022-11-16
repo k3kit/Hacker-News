@@ -3,11 +3,7 @@ export enum NewsActionTypes {
   FETCH_NEWS_ERROR = 'FETCH_NEWS_ERROR',
   FETCH_NEWS_SUCCESS = 'FETCH_NEWS_SUCCESS',
 }
-interface NewsState {
-  news: INews[];
-  loading: boolean;
-  error: null | string;
-}
+
 export interface INews {
   id: number;
   by: string;
