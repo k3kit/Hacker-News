@@ -29,9 +29,9 @@ interface ICurrentNews {
 
 export const NewsPage = () => {
   const { id } = useParams<{ id?: string }>();
-  const { news } = useTypesSelector((state) => state.news);
+  const { newInfo } = useTypesSelector((state) => state.infoNews);
   const { fetchNewsInfo } = useActions();
-  const [itemNews, setItemNews] = useState<ICurrentNews>({});
+  // const [itemNews, setItemNews] = useState<ICurrentNews>({});
 
   // useEffect(() => {
   //   news.forEach((it) => {
@@ -44,6 +44,9 @@ export const NewsPage = () => {
   // const handeleRefreshComments = () => {
   //   fetchNewsInfo(Number(id));
   // };
+  useEffect(() => {
+    fetchNewsInfo(Number(id));
+  }, []);
   return (
     <Box
       sx={{
@@ -73,18 +76,18 @@ export const NewsPage = () => {
         maxWidth="lg"
       >
         <Typography gutterBottom variant="h5" component="div" textAlign="left">
-          {itemNews['title']}
+          {newInfo['title']}
         </Typography>
-        <Link href={itemNews.url} color="inherit" underline="none">
+        <Link href={newInfo['url']} color="inherit" underline="none">
           Link to news
         </Link>
         <Typography variant="subtitle1" color="text.secondary">
-          {itemNews['score']} point. By {itemNews['by']} Jan 1, 2022, 13:44
+          {newInfo['score']} point. By {newInfo['by']} Jan 1, 2022, 13:44
         </Typography>
         <Box sx={{ mt: 1 }}>
           <Comments
-            kids={itemNews.kids ? itemNews.kids : []}
-            descendants={itemNews.kids ? itemNews.kids.length : 0}
+            kids={newInfo['kids'] ? newInfo : []}
+            descendants={newInfo['kids'] ? newInfo['kids'] : 0}
             // onClick={handeleRefreshComments}
           />
         </Box>
