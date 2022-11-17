@@ -18,6 +18,7 @@ import { useActions } from '../../hooks/useActions';
 import { useTypesSelector } from '../../hooks/useTypedSelector';
 import { Link as RouterLink } from 'react-router-dom';
 import { Refresh } from '@mui/icons-material';
+import { fetchComments } from '../../store/action-creators/comment';
 interface ICurrentNews {
   title?: string;
   by?: string;
@@ -31,22 +32,14 @@ export const NewsPage = () => {
   const { id } = useParams<{ id?: string }>();
   const { newInfo } = useTypesSelector((state) => state.infoNews);
   const { fetchNewsInfo } = useActions();
-  // const [itemNews, setItemNews] = useState<ICurrentNews>({});
 
-  // useEffect(() => {
-  //   news.forEach((it) => {
-  //     if (it.id === Number(id)) {
-  //       setItemNews(it);
-  //     }
-  //   });
-  // }, []);
-
-  // const handeleRefreshComments = () => {
-  //   fetchNewsInfo(Number(id));
-  // };
   useEffect(() => {
     fetchNewsInfo(Number(id));
   }, []);
+
+  const handeleRefreshComments = () => {
+    fetchComments(newInfo['kids']);
+  };
   return (
     <Box
       sx={{
@@ -56,9 +49,6 @@ export const NewsPage = () => {
       }}
     >
       <Container maxWidth="sm">
-        {/* <Link to={'/'}>
-          <Button variant="contained" />
-        </Link> */}
         <Link component={RouterLink} to="/">
           <Button variant="contained" sx={{ marginBottom: '20px' }}>
             Back
@@ -85,11 +75,7 @@ export const NewsPage = () => {
           {newInfo['score']} point. By {newInfo['by']} Jan 1, 2022, 13:44
         </Typography>
         <Box sx={{ mt: 1 }}>
-          <Comments
-            kids={newInfo['kids'] ? newInfo : []}
-            descendants={newInfo['kids'] ? newInfo['kids'] : 0}
-            // onClick={handeleRefreshComments}
-          />
+          <Comments kids={newInfo['kids']} descendants={newInfo['descendants']} />
         </Box>
       </Container>
     </Box>

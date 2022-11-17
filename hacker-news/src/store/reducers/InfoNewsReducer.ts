@@ -13,19 +13,21 @@ interface NewsInfoState {
   loading: boolean;
   error: null | string;
   newInfo: ICurrentNews;
+  comments: number[];
 }
 const initialState: NewsInfoState = {
   loading: false,
   error: null,
   newInfo: {},
+  comments: [],
 };
 
 export const infoNewReducer = (state = initialState, action: InfoNewAction) => {
   switch (action.type) {
     case NewsInfoActionTypes.FETCH_NEWS_INFO:
-      return { ...state, loading: true };
+      return { ...state, loading: true, newInfo: [] };
     case NewsInfoActionTypes.FETCH_NEWS_INFO_SUCCESS:
-      return { ...state, newInfo: { ...action.payload } };
+      return { ...state, newInfo: action.payload };
     case NewsInfoActionTypes.FETCH_NEWS_INFO_ERROR:
       return { ...state, error: action.payload };
     default:
