@@ -12,6 +12,18 @@ import { INews } from '../../types/news';
 export const Home: FC = memo(() => {
   const { news, loading } = useTypesSelector((state) => state.news);
   const skeletonArray: any[] = Array(10).fill('');
+  const { fetchNew } = useActions();
+  const handleRefresNews = () => {
+    fetchNew();
+  };
+
+  useEffect(() => {
+    fetchNew();
+    const fetchInterval = setInterval(() => fetchNew(), 60000);
+    return () => {
+      clearInterval(fetchInterval);
+    };
+  }, []);
 
   return (
     <main>
@@ -22,8 +34,8 @@ export const Home: FC = memo(() => {
           pb: 6,
         }}
       >
-        <Container maxWidth="sm">
-          <Button variant="outlined" startIcon={<RefreshIcon />}>
+        <Container maxWidth="sm" sx={{}}>
+          <Button variant="contained" startIcon={<RefreshIcon />} onClick={handleRefresNews}>
             Refresh
           </Button>
         </Container>

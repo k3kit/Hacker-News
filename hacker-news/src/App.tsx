@@ -5,16 +5,8 @@ import { useActions } from './hooks/useActions';
 import { useTypesSelector } from './hooks/useTypedSelector';
 import { Home } from './pages/home/Home';
 import { NewsPage } from './pages/news-page/NewsPage';
-function App() {
-  const { news } = useTypesSelector((state) => state.news);
-  const { fetchNew } = useActions();
-  useEffect(() => {
-    fetchNew();
-    setInterval(() => {
-      fetchNew();
-    }, 6000000);
-  }, []);
 
+function App() {
   return (
     <Router>
       <AppBar position="relative">
@@ -29,7 +21,7 @@ function App() {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route path="/news/:id">
+        <Route path="/:id">
           <NewsPage />
         </Route>
       </Switch>
