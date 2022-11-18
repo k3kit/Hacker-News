@@ -41,48 +41,49 @@ export const NewsPage = () => {
   }, []);
 
   return (
-    <Box
-      sx={{
-        bgcolor: '#f1f1f1',
-        pt: 8,
-        pb: 6,
-      }}
-    >
-      <Container maxWidth="sm">
-        <Link component={RouterLink} to="/">
-          <Button variant="contained" sx={{ marginBottom: '20px' }}>
-            Back
-          </Button>
-        </Link>
-      </Container>
-      <Container
+    <main>
+      <Box
         sx={{
-          py: 8,
-          bgcolor: '#ffffff',
-          borderRadius: 1,
-          boxShadow: '0px 5px 10px 0px rgba(0, 0, 0, 0.5);',
-          overflowX: 'auto',
+          pt: 8,
+          pb: 6,
         }}
-        maxWidth="lg"
       >
-        <Typography gutterBottom variant="h5" component="div" textAlign="left">
-          {loading ? <Skeleton /> : newInfo['title']}
-        </Typography>
-        <Link href={newInfo['url']} color="inherit" underline="none">
-          Link to news
-        </Link>
-        <Typography variant="subtitle1" color="text.secondary">
-          {newInfo['score']} point {bull} By {newInfo['by']} {bull}
-          {new Date(newInfo['time'] * 1000).toLocaleString('ru-RU')}
-        </Typography>
-        <Box sx={{ mt: 1 }}>
-          <Comments
-            ids={newInfo['kids'] ? newInfo['kids'] : []}
-            count={newInfo['descendants']}
-            loading={loadingCommetns}
-          />
-        </Box>
-      </Container>
-    </Box>
+        <Container>
+          <Link component={RouterLink} to="/">
+            <Button variant="contained" sx={{ marginBottom: '20px' }}>
+              Back
+            </Button>
+          </Link>
+        </Container>
+        <Container
+          sx={{
+            py: 8,
+            bgcolor: '#ffffff',
+            borderRadius: 1,
+            boxShadow: '0px 5px 10px 0px rgba(0, 0, 0, 0.5);',
+            overflowX: 'auto',
+          }}
+          maxWidth={'xl'}
+        >
+          <Typography gutterBottom variant="h5" component="div" textAlign="left">
+            {loading ? <Skeleton /> : newInfo['title']}
+          </Typography>
+          <Link href={newInfo['url']} color="inherit" underline="none" target="_blank">
+            Link to news
+          </Link>
+          <Typography variant="subtitle1" color="text.secondary">
+            {newInfo['score']} point {bull} By {newInfo['by']} {bull}
+            {new Date(newInfo['time'] * 1000).toLocaleString('ru-RU')}
+          </Typography>
+          <Box sx={{ mt: 1 }}>
+            <Comments
+              ids={newInfo['kids'] ? newInfo['kids'] : []}
+              count={newInfo['descendants']}
+              loading={loadingCommetns}
+            />
+          </Box>
+        </Container>
+      </Box>
+    </main>
   );
 };

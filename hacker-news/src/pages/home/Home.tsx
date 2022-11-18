@@ -29,12 +29,11 @@ export const Home: FC = memo(() => {
     <main>
       <Box
         sx={{
-          bgcolor: '#f1f1f1',
           pt: 8,
           pb: 6,
         }}
       >
-        <Container maxWidth="sm" sx={{}}>
+        <Container maxWidth="sm">
           <Button variant="contained" startIcon={<RefreshIcon />} onClick={handleRefresNews}>
             Refresh
           </Button>

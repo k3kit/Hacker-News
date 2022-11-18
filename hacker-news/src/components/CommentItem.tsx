@@ -57,7 +57,7 @@ export const CommentItem = (props: PropsComment) => {
   return (
     <div className={comment.kids && 'comment-item'}>
       <List
-        sx={{ width: '100%', maxWidth: 900, bgcolor: 'background.paper' }}
+        sx={{ width: '100%', maxWidth: '80%', bgcolor: 'background.paper' }}
         component="nav"
         aria-labelledby="nested-list-subheader"
       >
@@ -71,8 +71,7 @@ export const CommentItem = (props: PropsComment) => {
               sx={{
                 bgcolor: '#ffffff',
                 borderRadius: 1,
-                paddingLeft: '3rem',
-                border: 1,
+                boxShadow: 1,
               }}
             >
               <ListItemButton sx={{ pl: 4 }}>
