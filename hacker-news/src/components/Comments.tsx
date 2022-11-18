@@ -23,7 +23,7 @@ export const Comments = (props: CommentsProps) => {
     <>
       <Container>
         <Container sx={{ display: 'flex', alignItems: 'center' }}>
-          <Typography variant="h6">{props.count} comment</Typography>
+          <Typography variant="h6">{props.count} comments</Typography>
           <IconButton color="primary" aria-label="Refresh Commetnts">
             <RefreshIcon onClick={handleRefresh} />
           </IconButton>

@@ -19,6 +19,7 @@ import { useActions } from '../../hooks/useActions';
 import { useTypesSelector } from '../../hooks/useTypedSelector';
 import { Link as RouterLink } from 'react-router-dom';
 import { Refresh } from '@mui/icons-material';
+import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 
 interface ICurrentNews {
   title?: string;
@@ -71,7 +72,7 @@ export const NewsPage = () => {
           Link to news
         </Link>
         <Typography variant="subtitle1" color="text.secondary">
-          {newInfo['score']} point {bull} By {newInfo['by']} {bull}{' '}
+          {newInfo['score']} point {bull} By {newInfo['by']} {bull}
           {new Date(newInfo['time'] * 1000).toLocaleString('ru-RU')}
         </Typography>
         <Box sx={{ mt: 1 }}>

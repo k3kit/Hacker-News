@@ -39,8 +39,12 @@ export const CommentItem = (props: PropsComment) => {
   const handleShowKids = () => {
     setShowkids(!showKids);
   };
-
+  {
+  }
   const text = comment.text == undefined ? '' : `${comment.text}`;
+  const time =
+    comment.time == undefined ? '' : new Date(+comment.time * 1000).toLocaleString('ru-RU');
+  const by = comment.text == undefined ? '' : `by ${comment.by} ${time}`;
 
   useEffect(() => {
     setLoading(true);
@@ -78,6 +82,13 @@ export const CommentItem = (props: PropsComment) => {
                       <div
                         dangerouslySetInnerHTML={{
                           __html: DOMPurify.sanitize(text),
+                        }}
+                      ></div>
+                    }
+                    secondary={
+                      <div
+                        dangerouslySetInnerHTML={{
+                          __html: DOMPurify.sanitize(by),
                         }}
                       ></div>
                     }
