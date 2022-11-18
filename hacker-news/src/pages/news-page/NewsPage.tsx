@@ -14,7 +14,7 @@ import { Container } from '@mui/system';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Comments } from '../../components/Comments';
-import { NewsCard } from '../../components/NewsCard';
+import { bull, NewsCard } from '../../components/NewsCard';
 import { useActions } from '../../hooks/useActions';
 import { useTypesSelector } from '../../hooks/useTypedSelector';
 import { Link as RouterLink } from 'react-router-dom';
@@ -71,7 +71,8 @@ export const NewsPage = () => {
           Link to news
         </Link>
         <Typography variant="subtitle1" color="text.secondary">
-          {newInfo['score']} point. By {newInfo['by']}
+          {newInfo['score']} point {bull} By {newInfo['by']} {bull}{' '}
+          {new Date(newInfo['time'] * 1000).toLocaleString('ru-RU')}
         </Typography>
         <Box sx={{ mt: 1 }}>
           <Comments

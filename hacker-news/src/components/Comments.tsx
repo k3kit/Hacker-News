@@ -13,11 +13,12 @@ interface CommentsProps {
 }
 export const Comments = (props: CommentsProps) => {
   const { id } = useParams<{ id?: string }>();
-  const { fetchNewsInfo, fetchComments } = useActions();
+  const { fetchComments } = useActions();
 
   const handleRefresh = () => {
     fetchComments(Number(id));
   };
+
   return (
     <>
       <Container>
@@ -27,7 +28,6 @@ export const Comments = (props: CommentsProps) => {
             <RefreshIcon onClick={handleRefresh} />
           </IconButton>
         </Container>
-
         {props.ids.map((id) => (
           <CommentItem id={id} key={id} />
         ))}

@@ -12,11 +12,13 @@ interface CardProps {
     kids: [];
   };
 }
-const bull = (
+
+export const bull = (
   <Box component="span" sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}>
     •
   </Box>
 );
+
 export const NewsCard: FC<CardProps> = ({ item }) => {
   return (
     <Card component={Link} to={`/news/${item.id}`} sx={{ textDecoration: 'none' }}>

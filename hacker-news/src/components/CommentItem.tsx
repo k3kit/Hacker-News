@@ -34,11 +34,12 @@ interface IComment {
 export const CommentItem = (props: PropsComment) => {
   const [showKids, setShowkids] = useState<boolean>(false);
   const [comment, setComment] = useState<IComment>({});
-  const { loading } = useTypesSelector((state) => state.infoNews);
   const [isLoading, setLoading] = useState(true);
+
   const handleShowKids = () => {
     setShowkids(!showKids);
   };
+
   const text = comment.text == undefined ? '' : `${comment.text}`;
 
   useEffect(() => {
@@ -88,7 +89,6 @@ export const CommentItem = (props: PropsComment) => {
           )}
         </ListItem>
       </List>
-
       <Container sx={{ marginLeft: '50px' }}>
         {comment.kids && showKids && comment.kids.map((it) => <CommentItem id={it} key={it} />)}
       </Container>
