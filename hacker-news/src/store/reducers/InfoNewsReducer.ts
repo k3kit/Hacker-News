@@ -27,7 +27,7 @@ export const infoNewReducer = (state = initialState, action: InfoNewAction) => {
     case NewsInfoActionTypes.FETCH_NEWS_INFO:
       return { ...state, loading: true, newInfo: [] };
     case NewsInfoActionTypes.FETCH_NEWS_INFO_SUCCESS:
-      return { ...state, newInfo: { ...action.payload } };
+      return { ...state, loading: false, newInfo: { ...action.payload } };
     case NewsInfoActionTypes.FETCH_NEWS_INFO_ERROR:
       return { ...state, error: action.payload };
     case NewsInfoActionTypes.FETCH_NEWS_INFO_REFRECH:
