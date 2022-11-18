@@ -1,17 +1,15 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { Box, Button, Card, CardContent, Skeleton, Stack, Typography } from '@mui/material';
+import { Box, Button, Stack } from '@mui/material';
 import { Container } from '@mui/system';
 import React, { FC, memo, useEffect } from 'react';
 import { useActions } from '../../hooks/useActions';
 import { useTypesSelector } from '../../hooks/useTypedSelector';
-import { getNewsId } from '../../utils/API/news';
 import RefreshIcon from '@mui/icons-material/Refresh';
 import { NewsCard } from '../../components/NewsCard';
 import { SkeletonList } from '../../components/skeleton';
-import { INews } from '../../types/news';
+
 export const Home: FC = memo(() => {
   const { news, loading } = useTypesSelector((state) => state.news);
-  const skeletonArray: any[] = Array(10).fill('');
+  const skeletonArray = Array(10).fill('');
   const { fetchNew } = useActions();
   const handleRefresNews = () => {
     fetchNew();

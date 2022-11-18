@@ -1,9 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Dispatch } from 'react';
-import { CommentAction, CommentActionTypes } from '../../types/comment';
 import { InfoNewAction, NewsInfoActionTypes } from '../../types/InfoNews';
 import { INews, NewsAction, NewsActionTypes } from '../../types/news';
-
 import { getComment, getNews, getNewsId } from '../../utils/API/news';
 
 export const fetchNew = () => {

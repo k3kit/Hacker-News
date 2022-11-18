@@ -1,15 +1,4 @@
-import {
-  Box,
-  Button,
-  Card,
-  CardActionArea,
-  CardContent,
-  IconButton,
-  Link,
-  List,
-  Skeleton,
-  Typography,
-} from '@mui/material';
+import { Box, Button, Link, Skeleton, Typography } from '@mui/material';
 import { Container } from '@mui/system';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
@@ -18,17 +7,6 @@ import { bull, NewsCard } from '../../components/NewsCard';
 import { useActions } from '../../hooks/useActions';
 import { useTypesSelector } from '../../hooks/useTypedSelector';
 import { Link as RouterLink } from 'react-router-dom';
-import { Refresh } from '@mui/icons-material';
-import formatDistanceToNow from 'date-fns/formatDistanceToNow';
-
-interface ICurrentNews {
-  title?: string;
-  by?: string;
-  time?: number;
-  score?: number;
-  url?: string;
-  kids?: number[];
-}
 
 export const NewsPage = () => {
   const { id } = useParams<{ id?: string }>();

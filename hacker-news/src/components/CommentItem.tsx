@@ -1,22 +1,8 @@
-import {
-  ListItem,
-  IconButton,
-  ListItemText,
-  Collapse,
-  List,
-  ListItemButton,
-  ListItemIcon,
-  Container,
-  Skeleton,
-} from '@mui/material';
+import { ListItem, ListItemText, List, ListItemButton, Container, Skeleton } from '@mui/material';
 import React, { FC, useEffect, useState } from 'react';
-import CommentIcon from '@mui/icons-material/Comment';
-import { fetchNew, fetchNewsInfo } from '../store/action-creators';
 import { getComment } from '../utils/API/news';
-import ReactHtmlParser from 'react-html-parser';
 import './style.scss';
 import { ExpandLess, ExpandMore, StarBorder } from '@mui/icons-material';
-import { useTypesSelector } from '../hooks/useTypedSelector';
 
 import DOMPurify from 'dompurify';
 
@@ -39,8 +25,7 @@ export const CommentItem = (props: PropsComment) => {
   const handleShowKids = () => {
     setShowkids(!showKids);
   };
-  {
-  }
+
   const text = comment.text == undefined ? '' : `${comment.text}`;
   const time =
     comment.time == undefined ? '' : new Date(+comment.time * 1000).toLocaleString('ru-RU');
