@@ -18,7 +18,7 @@ import { useActions } from '../../hooks/useActions';
 import { useTypesSelector } from '../../hooks/useTypedSelector';
 import { Link as RouterLink } from 'react-router-dom';
 import { Refresh } from '@mui/icons-material';
-import { fetchComments } from '../../store/action-creators/comment';
+
 interface ICurrentNews {
   title?: string;
   by?: string;
@@ -37,9 +37,6 @@ export const NewsPage = () => {
     fetchNewsInfo(Number(id));
   }, []);
 
-  const handeleRefreshComments = () => {
-    fetchComments(newInfo['kids']);
-  };
   return (
     <Box
       sx={{
@@ -75,7 +72,7 @@ export const NewsPage = () => {
           {newInfo['score']} point. By {newInfo['by']} Jan 1, 2022, 13:44
         </Typography>
         <Box sx={{ mt: 1 }}>
-          <Comments kids={newInfo['kids']} descendants={newInfo['descendants']} />
+          <Comments ids={newInfo['kids'] ? newInfo['kids'] : []} />
         </Box>
       </Container>
     </Box>

@@ -4,28 +4,21 @@ import RefreshIcon from '@mui/icons-material/Refresh';
 
 import { Container } from '@mui/system';
 import { CommentItem } from './CommentItem';
-import { fetchComments } from '../store/action-creators/comment';
-interface CommentProps {
-  kids: number[];
-  descendants: number;
+interface CommentsProps {
+  ids: number[];
 }
-export const Comments: FC<CommentProps> = ({ kids, descendants }) => {
-  useEffect(() => {
-    fetchComments(kids);
-  }, []);
-
+export const Comments = (props: CommentsProps) => {
   return (
     <>
       <Container>
         <Container sx={{ display: 'flex', alignItems: 'center' }}>
-          <Typography variant="h6">{descendants} comment</Typography>
+          <Typography variant="h6">comment</Typography>
           <IconButton color="primary" aria-label="Refresh Commetnts">
             <RefreshIcon />
           </IconButton>
         </Container>
-
-        {kids.map((it) => (
-          <CommentItem id={it} key={it} />
+        {props.ids.map((id) => (
+          <CommentItem id={id} key={id} />
         ))}
       </Container>
     </>

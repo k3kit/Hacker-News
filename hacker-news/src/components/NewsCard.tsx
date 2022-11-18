@@ -9,6 +9,7 @@ interface CardProps {
     by: string;
     time: number;
     score: number;
+    kids: [];
   };
 }
 const bull = (
@@ -25,7 +26,8 @@ export const NewsCard: FC<CardProps> = ({ item }) => {
             {item.title}
           </Typography>
           <Typography variant="subtitle1" color="text.secondary">
-            {item.score} point by {item.by} {bull} Jan 1, 2022, 13:44
+            {item.score} point by {item.by} {bull} Jan 1, 2022, 13:44 {bull}
+            {item.kids}
           </Typography>
         </CardContent>
       </CardActionArea>

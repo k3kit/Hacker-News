@@ -1,3 +1,5 @@
+// import { IComment } from '../components/CommentItem';
+
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export interface CommentState {
   currentComments: any[];
@@ -21,7 +23,7 @@ interface FetchCommentAction {
 }
 interface FetchCommentSuccessAction {
   type: CommentActionTypes.FETCH_COMMENT_SUCCESS;
-  payload: any[];
+  payload: any;
 }
 interface FetchCommentErrorAction {
   type: CommentActionTypes.FETCH_COMMENT_ERROR;
