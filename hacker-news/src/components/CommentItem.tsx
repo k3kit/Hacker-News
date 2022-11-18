@@ -35,7 +35,7 @@ export const CommentItem = (props: PropsComment) => {
   useEffect(() => {
     getComment(Number(props.id))
       .then((data) => setComment(data))
-      .catch((e) => console.log('error: ', e));
+      .catch((err) => console.log('error: ', err));
   }, []);
 
   return (

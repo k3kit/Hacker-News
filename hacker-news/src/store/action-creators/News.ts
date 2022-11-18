@@ -31,21 +31,14 @@ export const fetchNewsInfo = (id: number) => {
   };
 };
 
-export const fetchComments = (id: number[]) => {
-  return (dispatch: Dispatch<CommentAction>) => {
-    dispatch({ type: CommentActionTypes.FETCH_COMMENT });
-    try {
-      const data = Promise.all(
-        id.map(async (i) => {
-          getComment(i).then((data) => {
-            return data;
-          });
-        })
-      );
-      dispatch({ type: CommentActionTypes.FETCH_COMMENT_SUCCESS, payload: data });
-    } catch (error) {
-      console.log(error);
-      return [];
-    }
+export const fetchComments = (id: number) => {
+  return (dispatch: Dispatch<InfoNewAction>) => {
+    getNews(id)
+      .then((data) => {
+        dispatch({ type: NewsInfoActionTypes.FETCH_NEWS_INFO_REFRECH, payload: data.kids });
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   };
 };
