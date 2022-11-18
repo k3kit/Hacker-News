@@ -7,6 +7,7 @@ import {
   IconButton,
   Link,
   List,
+  Skeleton,
   Typography,
 } from '@mui/material';
 import { Container } from '@mui/system';
@@ -30,8 +31,9 @@ interface ICurrentNews {
 
 export const NewsPage = () => {
   const { id } = useParams<{ id?: string }>();
-  const { newInfo } = useTypesSelector((state) => state.infoNews);
+  const { newInfo, loading } = useTypesSelector((state) => state.infoNews);
   const { fetchNewsInfo } = useActions();
+  const [loadingCommetns, setloadingCommetns] = useState(false);
 
   useEffect(() => {
     fetchNewsInfo(Number(id));
@@ -63,16 +65,20 @@ export const NewsPage = () => {
         maxWidth="lg"
       >
         <Typography gutterBottom variant="h5" component="div" textAlign="left">
-          {newInfo['title']}
+          {loading ? <Skeleton /> : newInfo['title']}
         </Typography>
         <Link href={newInfo['url']} color="inherit" underline="none">
           Link to news
         </Link>
         <Typography variant="subtitle1" color="text.secondary">
-          {newInfo['score']} point. By {newInfo['by']} Jan 1, 2022, 13:44
+          {newInfo['score']} point. By {newInfo['by']}
         </Typography>
         <Box sx={{ mt: 1 }}>
-          <Comments ids={newInfo['kids'] ? newInfo['kids'] : []} />
+          <Comments
+            ids={newInfo['kids'] ? newInfo['kids'] : []}
+            count={newInfo['descendants']}
+            loading={loadingCommetns}
+          />
         </Box>
       </Container>
     </Box>

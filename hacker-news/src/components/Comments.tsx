@@ -8,6 +8,8 @@ import { useActions } from '../hooks/useActions';
 import { useParams } from 'react-router';
 interface CommentsProps {
   ids: number[];
+  count: number;
+  loading: boolean;
 }
 export const Comments = (props: CommentsProps) => {
   const { id } = useParams<{ id?: string }>();
@@ -20,11 +22,12 @@ export const Comments = (props: CommentsProps) => {
     <>
       <Container>
         <Container sx={{ display: 'flex', alignItems: 'center' }}>
-          <Typography variant="h6">comment</Typography>
+          <Typography variant="h6">{props.count} comment</Typography>
           <IconButton color="primary" aria-label="Refresh Commetnts">
             <RefreshIcon onClick={handleRefresh} />
           </IconButton>
         </Container>
+
         {props.ids.map((id) => (
           <CommentItem id={id} key={id} />
         ))}

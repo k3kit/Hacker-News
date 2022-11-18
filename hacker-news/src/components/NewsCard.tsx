@@ -26,8 +26,8 @@ export const NewsCard: FC<CardProps> = ({ item }) => {
             {item.title}
           </Typography>
           <Typography variant="subtitle1" color="text.secondary">
-            {item.score} point by {item.by} {bull} Jan 1, 2022, 13:44 {bull}
-            {item.kids}
+            {item.score} point by {item.by} {bull}
+            {new Date(+item.time * 1000).toLocaleString('ru-RU')}
           </Typography>
         </CardContent>
       </CardActionArea>
