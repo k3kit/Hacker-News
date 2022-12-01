@@ -1,32 +1,15 @@
-# Getting Started with Create React App
+<h1 align="center">Hacker News</h1>
+<div align="center">
+    <img src="https://user-images.githubusercontent.com/70204612/205153193-eaadb068-99a9-449e-accd-4af6508c8393.png" width="100%">
+</div>
+<h2 align="center"><a href="https://hacker-news-kekit.netlify.app/">Live Demo</a></h2>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) TS template.
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `yarn start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
+## Backend
+- [Repo](https://github.com/HackerNews/API)
+## Used technologies
+- TypeScript
+- React
+- Redux
+- Redux thunk
+- React Router DOM
+- mui
